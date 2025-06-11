@@ -1,16 +1,15 @@
-// src/app/FeedbackForm.tsx
 "use client";
-import { FormEvent, useState } from 'react';
-import './star.css'; // Make sure to create this file
+import { useState } from 'react';
+import {
+  FeedbackData,
+  handleSubmit,
+  showCommentSection,
+  redirectToPage,
+  handleRating,
+} from './FeedbackJavascript';
 
-interface FeedbackData {
-  rating: number;
-  clientName: string;
-  emailAddress: string;
-  comment: string;
-}
 
-const FeedbackForm = () => {
+const FeedbackForm = () => { 
   const [feedbackData, setFeedbackData] = useState<FeedbackData>({
     rating: 0,
     clientName: '',
@@ -18,69 +17,6 @@ const FeedbackForm = () => {
     comment: ''
   });
 
-  const handleRating = (value: number) => {
-    setFeedbackData(prev => ({
-        ...prev,
-        rating: value
-    }));
-
-    if ( value === 5) {
-        redirectToPage();
-    } else {
-        showCommentSection();
-     }
-    }
-
-  const redirectToPage = () => {
-    window.location.href = "https://search.google.com/local/writereview?placeid=ChIJv_EwTLjNQQwRXhRYGLxQpdY";
-  }
-
-  const redirectToHomePage = () => {
-    window.location.href = "https";
-  }
-
-  const showCommentSection = () => {
-    const commentSection = document.querySelector('.comment-section');
-    if (commentSection) {
-      commentSection.classList.remove('hidden');
-    }
-  };
-  
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-  
-    try {
-      const response = await fetch('https://formspree.io/f/manjezar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          rating: feedbackData.rating,
-          name: feedbackData.clientName,
-          email: feedbackData.emailAddress,
-          message: feedbackData.comment
-        })
-      });
-  
-      if (response.ok) {
-        setFeedbackData({
-          rating: 0,
-          clientName: '',
-          emailAddress: '',
-          comment: ''
-        });
-        alert('Gracias por tu feedback!');
-        redirectToHomePage();
-      } else {
-        alert('Hubo un error. Por favor, inténtalo de nuevo.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Hubo un error. Por favor, inténtalo de nuevo.');
-    }
-  };
 
   return (
 
