@@ -2,7 +2,7 @@
 import { FormEvent } from 'react';
 import './star.css';
 
-// Move interface outside
+// Interface definition
 export interface FeedbackData {
   rating: number;
   clientName: string;
@@ -10,7 +10,7 @@ export interface FeedbackData {
   comment: string;
 }
 
-// Move all functions outside so they can be exported
+// Utility functions
 export const redirectToPage = () => {
   window.location.href = "https://search.google.com/local/writereview?placeid=ChIJv_EwTLjNQQwRXhRYGLxQpdY";
 };
@@ -26,7 +26,6 @@ export const showCommentSection = () => {
   }
 };
 
-// Update handleSubmit to accept necessary parameters
 export const handleSubmit = async (
   e: FormEvent, 
   feedbackData: FeedbackData, 

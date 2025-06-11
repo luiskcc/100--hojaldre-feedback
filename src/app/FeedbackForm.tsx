@@ -1,13 +1,11 @@
 "use client";
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   FeedbackData,
   handleSubmit,
   showCommentSection,
   redirectToPage,
-  handleRating,
 } from './FeedbackJavascript';
-
 
 const FeedbackForm = () => { 
   const [feedbackData, setFeedbackData] = useState<FeedbackData>({
@@ -17,16 +15,32 @@ const FeedbackForm = () => {
     comment: ''
   });
 
+  const handleRating = (value: number) => {
+    setFeedbackData(prev => ({
+      ...prev,
+      rating: value
+    }));
+
+    if (value === 5) {
+      redirectToPage();
+    } else {
+      showCommentSection();
+    }
+  };
+
+  const onSubmit = (e: FormEvent) => {
+    handleSubmit(e, feedbackData, setFeedbackData);
+  };
 
   return (
-
     <div className="text-center text-[rgb(46,75,96)]">
       <div className="content-section px-[60px] py-[120px] lg:px-[100px] lg:py-[200px] xl:p-[100px]">
         <h1 className="lg:text-4xl text-4xl text-slate-800 mb-4 font-open-sans">
           Gracias por visitarnos, valoramos tu opinión.
         </h1>
         <div className="max-w-[400px] mx-auto">
-          <form onSubmit={handleSubmit} id="feedbackForm">
+          {/* Changed handleSubmit to onSubmit here */}
+          <form onSubmit={onSubmit} id="feedbackForm">
             <div className="rating">
               {[5, 4, 3, 2, 1].map((value) => (
                 <div key={value}>

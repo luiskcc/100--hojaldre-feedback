@@ -1,35 +1,26 @@
+import { Metadata } from "next";
 import Header from "./Header";
 import FeedbackForm from "./FeedbackForm";
 
-export const metadata = {
-  title: "SensCare Spa - Feedback",
-  description: "SensCare Spa - Feedback",
+export const metadata: Metadata = {
+  title: "100% Hojaldre - Feedback",
+  description: "100% Hojaldre - Feedback",
   icons: {
-    icon: "/senscare-favicon.ico",
+    icon: "/hojaldre-favicon.ico",
   },
   openGraph: {
-    title: "SensCare Spa - Feedback",
-    description: "SensCare Spa - Feedback",
+    title: "100% Hojaldre - Feedback",
+    description: "100% Hojaldre - Feedback",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SensCare Spa - Feedback",
-    description: "SensCare Spa - Feedback",
+    title: "100% Hojaldre - Feedback",
+    description: "100% Hojaldre - Feedback",
     images: "/og-image.png",
   },
   alternates: {
-    canonical: "https://senscarespa.com/feedback",
-  },
-
-  og: {
-    title: "SensCare Spa - Feedback",
-    description: "SensCare Spa - Feedback",
-    images: "/og-image.png",
-  },
-
-  favicon: {
-    icon: "/senscare-favicon.ico",
+    canonical: "https://100x100hojaldre.com/feedback",
   },
   manifest: "/manifest.json",
   robots: {
