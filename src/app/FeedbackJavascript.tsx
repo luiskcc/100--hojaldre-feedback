@@ -34,7 +34,7 @@ export const handleSubmit = async (
   e.preventDefault();
 
   try {
-    const response = await fetch('https://formspree.io/f/manjezar', {
+    const response = await fetch('https://formspree.io/f/mldnbgkq', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
