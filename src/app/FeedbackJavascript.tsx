@@ -12,7 +12,7 @@ export interface FeedbackData {
 
 // Utility functions
 export const redirectToPage = () => {
-  window.location.href = "https://search.google.com/local/writereview?placeid=ChIJv_EwTLjNQQwRXhRYGLxQpdY";
+  window.location.href = "https://search.google.com/local/writereview?placeid=ChIJYy41_CDNQQwRHaKoURvyu7w";
 };
 
 export const redirectToHomePage = () => {
